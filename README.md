@@ -10,7 +10,6 @@ that`s 4 code development technology class obiviously...
 - #### 个人爱好
 
 喜欢画画，写奇奇怪怪的零碎故事，睡觉以及做梦。据说图文并茂可以令人印象深刻，那就随便贴一张我上个月画的画好了 ↓
-![image]()
 <img src="https://user-images.githubusercontent.com/42403973/109979672-1a6f2980-7d3a-11eb-8eb9-c8702a61ac05.png" width = "339.5" height = "480" alt="" align=center />
 
 
