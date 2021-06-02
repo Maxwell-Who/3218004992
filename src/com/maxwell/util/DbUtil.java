@@ -11,7 +11,7 @@ public class DbUtil{
 	private String dbUrl="jdbc:mysql://localhost:3306/db_srs";
 	private String dbUserName="root";
 	private String dbPassword="";
-	private String jdbcName="com.mysql.jdbc.Driver";
+	private String jdbcName="com.mysql.cj.jdbc.Driver";
 	
 	public Connection getCon()throws Exception{
 		Class.forName(jdbcName);
