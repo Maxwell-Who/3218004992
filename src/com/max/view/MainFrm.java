@@ -22,6 +22,7 @@ import javax.swing.JDesktopPane;
 public class MainFrm extends JFrame {
 
 	private JPanel contentPane;
+	private JDesktopPane table_1=null;
 
 	/**
 	 * Launch the application.
@@ -91,6 +92,16 @@ public class MainFrm extends JFrame {
 		mnNewMenu_5.setIcon(new ImageIcon(MainFrm.class.getResource("/images/\u5BC6\u8BED.png")));
 		menuBar.add(mnNewMenu_5);
 		
+		JMenuItem mntmNewMenuItem_7 = new JMenuItem("\u672A\u5B8C\u6210\u529F\u80FD");
+		mntmNewMenuItem_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UndoneFrm undoneFrm= new UndoneFrm();
+				undoneFrm.setVisible(true);
+				table_1.add(undoneFrm);
+			}
+		});
+		mnNewMenu_5.add(mntmNewMenuItem_7);
+		
 		JMenuItem mntmNewMenuItem = new JMenuItem("\u9000\u51FA");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -107,20 +118,20 @@ public class MainFrm extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JDesktopPane desktopPane = new JDesktopPane();
-		desktopPane.setBorder(null);
-		desktopPane.setBackground(Color.WHITE);
+		table_1 = new JDesktopPane();
+		table_1.setBorder(null);
+		table_1.setBackground(Color.WHITE);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(desktopPane, GroupLayout.PREFERRED_SIZE, 1534, GroupLayout.PREFERRED_SIZE)
+					.addComponent(table_1, GroupLayout.PREFERRED_SIZE, 1534, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addComponent(desktopPane, GroupLayout.PREFERRED_SIZE, 769, GroupLayout.PREFERRED_SIZE)
+					.addComponent(table_1, GroupLayout.PREFERRED_SIZE, 769, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
