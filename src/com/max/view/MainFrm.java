@@ -61,9 +61,23 @@ public class MainFrm extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("\u67E5\u770B\u6240\u6709");
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProjectSearcherFrm projectSearcherFrm= new ProjectSearcherFrm();
+				projectSearcherFrm.setVisible(true);
+				table_1.add(projectSearcherFrm);
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem_5);
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("\u65B0\u589E\u9879\u76EE");
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProjectAddFrm projectAddFrm= new ProjectAddFrm();
+				projectAddFrm.setVisible(true);
+				table_1.add(projectAddFrm);
+			}
+		});
 		mnNewMenu.add(mntmNewMenuItem_6);
 		
 		JMenu mnNewMenu_1 = new JMenu("\u4EBA\u5458");
@@ -75,6 +89,13 @@ public class MainFrm extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem_3);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("\u81EA\u7531\u5DE5\u4F5C\u8005");
+		mntmNewMenuItem_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WorkerSearchFrm workerSearchFrm= new WorkerSearchFrm();
+				workerSearchFrm.setVisible(true);
+				table_1.add(workerSearchFrm);
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_4);
 		
 		JMenu mnNewMenu_2 = new JMenu("\u4E2A\u4EBA");
