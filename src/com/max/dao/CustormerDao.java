@@ -14,6 +14,7 @@ public class CustormerDao {
 		StringBuffer sb =new StringBuffer("select * from worker where w_flag='3'");
 		if (StringUtil.isNotEmpty(custormer.getW_pro())) {
 			sb.append(" and w_pro like '%"+custormer.getW_pro()+"%' ");
+			System.out.println(sb);
 		}
 		PreparedStatement pstmt=con.prepareStatement(sb.toString());
 		return pstmt.executeQuery();

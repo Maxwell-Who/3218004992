@@ -29,8 +29,8 @@ public class CustormerSearchFrm extends JInternalFrame {
 
 	private DbUtil dbUtil =new DbUtil();
 	private CustormerDao CustormerDao =new CustormerDao();
-	private JTextField w_searchtxt;
-	private JTable w_table;
+	private JTextField c_searchtxt;
+	private JTable c_table;
 
 	/**
 	 * Launch the application.
@@ -55,30 +55,30 @@ public class CustormerSearchFrm extends JInternalFrame {
 		setBackground(Color.WHITE);
 		setIconifiable(true);
 		setClosable(true);
-		setTitle("\u81EA\u7531\u5DE5\u4F5C\u8005");
+		setTitle("\u5BA2\u6237");
 		setBounds(100, 100, 828, 533);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		
-		JLabel lblNewLabel = new JLabel("\u641C\u7D22\u81EA\u7531\u5DE5\u4F5C\u8005\uFF1A");
+		JLabel lblNewLabel = new JLabel("\u641C\u7D22\u5BA2\u6237\uFF1A");
 		lblNewLabel.setFont(new Font("宋体", Font.BOLD, 15));
 		
-		w_searchtxt = new JTextField();
+		c_searchtxt = new JTextField();
 		/*w_searchtxt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CustormerSearchActionPerformed(e);
 			}
 		});*/
-		w_searchtxt.setColumns(10);
+		c_searchtxt.setColumns(10);
 		
-		JButton w_seachButton = new JButton("\u641C\u7D22");
-		w_seachButton.addActionListener(new ActionListener() {
+		JButton c_seachButton = new JButton("\u641C\u7D22");
+		c_seachButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CustormerSearchActionPerformed(e);
 			}
 		});
-		w_seachButton.setIcon(new ImageIcon(CustormerSearchFrm.class.getResource("/images/\u641C\u7D22.png")));
-		w_seachButton.setBackground(Color.WHITE);
+		c_seachButton.setIcon(new ImageIcon(CustormerSearchFrm.class.getResource("/images/\u641C\u7D22.png")));
+		c_seachButton.setBackground(Color.WHITE);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -88,9 +88,9 @@ public class CustormerSearchFrm extends JInternalFrame {
 							.addGap(134)
 							.addComponent(lblNewLabel)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(w_searchtxt, GroupLayout.PREFERRED_SIZE, 286, GroupLayout.PREFERRED_SIZE)
+							.addComponent(c_searchtxt, GroupLayout.PREFERRED_SIZE, 286, GroupLayout.PREFERRED_SIZE)
 							.addGap(26)
-							.addComponent(w_seachButton, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE))
+							.addComponent(c_seachButton, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE))
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(92)
 							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 608, GroupLayout.PREFERRED_SIZE)))
@@ -101,16 +101,16 @@ public class CustormerSearchFrm extends JInternalFrame {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(35)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(w_seachButton)
+						.addComponent(c_seachButton)
 						.addComponent(lblNewLabel)
-						.addComponent(w_searchtxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(c_searchtxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(55)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 309, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(76, Short.MAX_VALUE))
 		);
 		
-		w_table = new JTable();
-		w_table.setModel(new DefaultTableModel(
+		c_table = new JTable();
+		c_table.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
@@ -124,8 +124,8 @@ public class CustormerSearchFrm extends JInternalFrame {
 				return columnEditables[column];
 			}
 		});
-		w_table.getColumnModel().getColumn(1).setPreferredWidth(117);
-		scrollPane.setViewportView(w_table);
+		c_table.getColumnModel().getColumn(1).setPreferredWidth(117);
+		scrollPane.setViewportView(c_table);
 		getContentPane().setLayout(groupLayout);
 		
 		this.fillTable(new Custormer());
@@ -135,7 +135,7 @@ public class CustormerSearchFrm extends JInternalFrame {
 
 	private void CustormerSearchActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
-		String search=this.w_searchtxt.getText();
+		String search=this.c_searchtxt.getText();
 		//System.out.println(search); 
 		Custormer Custormer=new Custormer();
 		Custormer.setW_pro(search);
@@ -149,7 +149,7 @@ public class CustormerSearchFrm extends JInternalFrame {
 	 */
 	
 	private void fillTable(Custormer Custormer) {
-		DefaultTableModel dtm=(DefaultTableModel)w_table.getModel();
+		DefaultTableModel dtm=(DefaultTableModel)c_table.getModel();
 		dtm.setRowCount(0);//清空表格
 		Connection con=null;
 		try {
