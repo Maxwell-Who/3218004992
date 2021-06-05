@@ -17,11 +17,13 @@ public class WorkerDao {
 	 * @throws Exception
 	 */
 	public ResultSet list(Connection con,Worker worker) throws Exception{
-		StringBuffer sb =new StringBuffer("select * from worker");
+		StringBuffer sb =new StringBuffer("select * from worker where w_flag='1'");
 		if (StringUtil.isNotEmpty(worker.getW_pro())) {
-			sb.append(" and p_name like '%"+worker.getW_pro()+"%'");
+			sb.append(" and w_pro like '%"+worker.getW_pro()+"%' ");
 		}
-		PreparedStatement pstmt=con.prepareStatement(sb.toString().replaceFirst("and", "where"));
+		//PreparedStatement pstmt=con.prepareStatement(sb.toString().replaceFirst("and", "where"));
+		PreparedStatement pstmt=con.prepareStatement(sb.toString());
+		//System.out.println(sb);
 		return pstmt.executeQuery();
 }
 }

@@ -47,6 +47,7 @@ public class ProjectDao {
 	public ResultSet list(Connection con,Project project) throws Exception{
 			StringBuffer sb =new StringBuffer("select * from project");
 			if (StringUtil.isNotEmpty(project.getP_name())) {
+				//System.out.println(project.getP_name()); 
 				sb.append(" and p_name like '%"+project.getP_name()+"%'");
 			}
 			PreparedStatement pstmt=con.prepareStatement(sb.toString().replaceFirst("and", "where"));

@@ -21,13 +21,14 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.table.DefaultTableModel;
 
-import com.max.dao.WorkerDao;
-import com.max.model.Worker;
+import com.max.dao.CustormerDao;
+import com.max.model.Custormer;
 import com.maxwell.util.DbUtil;
 
-public class WorkerSearchFrm extends JInternalFrame {
+public class CustormerSearchFrm extends JInternalFrame {
+
 	private DbUtil dbUtil =new DbUtil();
-	private WorkerDao workerDao =new WorkerDao();
+	private CustormerDao CustormerDao =new CustormerDao();
 	private JTextField w_searchtxt;
 	private JTable w_table;
 
@@ -38,7 +39,7 @@ public class WorkerSearchFrm extends JInternalFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					WorkerSearchFrm frame = new WorkerSearchFrm();
+					CustormerSearchFrm frame = new CustormerSearchFrm();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,7 +51,7 @@ public class WorkerSearchFrm extends JInternalFrame {
 	/**
 	 * Create the frame.
 	 */
-	public WorkerSearchFrm() {
+	public CustormerSearchFrm() {
 		setBackground(Color.WHITE);
 		setIconifiable(true);
 		setClosable(true);
@@ -65,7 +66,7 @@ public class WorkerSearchFrm extends JInternalFrame {
 		w_searchtxt = new JTextField();
 		/*w_searchtxt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				WorkerSearchActionPerformed(e);
+				CustormerSearchActionPerformed(e);
 			}
 		});*/
 		w_searchtxt.setColumns(10);
@@ -73,10 +74,10 @@ public class WorkerSearchFrm extends JInternalFrame {
 		JButton w_seachButton = new JButton("\u641C\u7D22");
 		w_seachButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				WorkerSearchActionPerformed(e);
+				CustormerSearchActionPerformed(e);
 			}
 		});
-		w_seachButton.setIcon(new ImageIcon(WorkerSearchFrm.class.getResource("/images/\u641C\u7D22.png")));
+		w_seachButton.setIcon(new ImageIcon(CustormerSearchFrm.class.getResource("/images/\u641C\u7D22.png")));
 		w_seachButton.setBackground(Color.WHITE);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -113,7 +114,7 @@ public class WorkerSearchFrm extends JInternalFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"\u7F16\u53F7", "\u59D3\u540D", "\u4E13\u4E1A\u9886\u57DF", "\u7535\u8BDD\u53F7\u7801", "QQ\u53F7", "\u5FAE\u4FE1\u53F7"
+				"\u7F16\u53F7", "\u516C\u53F8/\u4E2A\u4F53", "\u4ECE\u4E1A\u9886\u57DF", "\u7535\u8BDD\u53F7\u7801", "QQ\u53F7", "\u5FAE\u4FE1\u53F7"
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {
@@ -123,36 +124,37 @@ public class WorkerSearchFrm extends JInternalFrame {
 				return columnEditables[column];
 			}
 		});
+		w_table.getColumnModel().getColumn(1).setPreferredWidth(117);
 		scrollPane.setViewportView(w_table);
 		getContentPane().setLayout(groupLayout);
 		
-		this.fillTable(new Worker());
+		this.fillTable(new Custormer());
 
 	}
 	
 
-	private void WorkerSearchActionPerformed(ActionEvent evt) {
+	private void CustormerSearchActionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
 		String search=this.w_searchtxt.getText();
-		System.out.println(search); 
-		Worker worker=new Worker();
-		worker.setW_pro(search);
-		this.fillTable(worker);
+		//System.out.println(search); 
+		Custormer Custormer=new Custormer();
+		Custormer.setW_pro(search);
+		this.fillTable(Custormer);
 	}
 
 	/**
 	 * 初始化填充表格
-	 * @param worker
+	 * @param Custormer
 	 * 
 	 */
 	
-	private void fillTable(Worker worker) {
+	private void fillTable(Custormer Custormer) {
 		DefaultTableModel dtm=(DefaultTableModel)w_table.getModel();
 		dtm.setRowCount(0);//清空表格
 		Connection con=null;
 		try {
 			con=dbUtil.getCon();
-			ResultSet rs=workerDao.list(con,worker);
+			ResultSet rs=CustormerDao.list(con,Custormer);
 			while (rs.next()) {
 				Vector vec=new Vector();
 				vec.add(rs.getString("w_id"));

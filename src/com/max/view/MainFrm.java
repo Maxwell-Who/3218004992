@@ -86,6 +86,13 @@ public class MainFrm extends JFrame {
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("\u5BA2\u6237");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CustormerSearchFrm custormerSearchFrm= new CustormerSearchFrm();
+				custormerSearchFrm.setVisible(true);
+				table_1.add(custormerSearchFrm);
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_3);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("\u81EA\u7531\u5DE5\u4F5C\u8005");
@@ -104,9 +111,23 @@ public class MainFrm extends JFrame {
 		menuBar.add(mnNewMenu_2);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("\u4E2A\u4EBA\u4FE1\u606F");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UndoneFrm undoneFrm= new UndoneFrm();
+				undoneFrm.setVisible(true);
+				table_1.add(undoneFrm);
+			}
+		});
 		mnNewMenu_2.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("\u65F6\u95F4\u8868");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ScheduleFrm scheduleFrm= new ScheduleFrm();
+				scheduleFrm.setVisible(true);
+				table_1.add(scheduleFrm);
+			}
+		});
 		mnNewMenu_2.add(mntmNewMenuItem_2);
 		
 		JMenu mnNewMenu_5 = new JMenu("\u65E5\u5FD7");
