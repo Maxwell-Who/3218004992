@@ -202,8 +202,8 @@ public class ProjectAddFrm extends JInternalFrame {
 	}
 
 	private void resetValue() {
-		this.p_nametxt.setText("");
 		this.p_wnametxt.setText("");
+		this.p_nametxt.setText("");
 		this.p_dsptxt.setText("");
 		this.p_sittxt.setText("");
 	}

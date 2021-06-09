@@ -13,10 +13,10 @@ public class Project {
 	
 	public Project(String p_name, String p_dsp, String p_sit, String p_wname) {
 		super();
+		this.p_wname = p_wname;
 		this.p_name = p_name;
 		this.p_dsp = p_dsp;
 		this.p_sit = p_sit;
-		this.p_wname = p_wname;
 	}
 
 
